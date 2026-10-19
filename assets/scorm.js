@@ -1,7 +1,7 @@
 /* Minimal SCORM 1.2 wrapper. Outside an LMS it falls back to the browser's localStorage,
    so the same files work as a plain website (GitHub Pages) and as a SCORM package. */
 (function () {
-  var api = null, finished = false, KEY = "fao-si-lesson1";
+  var api = null, finished = false, KEY = "fao-si-course-v2";
 
   function findAPI(win) {
     var n = 0;
@@ -42,13 +42,19 @@
         try { window.localStorage.setItem(KEY, raw); } catch (e) { /* private mode: progress is not kept */ }
       }
     },
-    complete: function (scorePct) {
+    complete: function (scorePct, passed) {
       if (!api) return;
       api.LMSSetValue("cmi.core.score.min", "0");
       api.LMSSetValue("cmi.core.score.max", "100");
       api.LMSSetValue("cmi.core.score.raw", String(Math.round(scorePct)));
-      api.LMSSetValue("cmi.core.lesson_status", "completed");
+      api.LMSSetValue("cmi.core.lesson_status", passed ? "passed" : "failed");
       api.LMSCommit("");
+    },
+    learnerName: function () {
+      if (!api) return "";
+      var n = api.LMSGetValue("cmi.core.student_name") || "";
+      var parts = n.split(",");
+      return parts.length === 2 ? (parts[1].trim() + " " + parts[0].trim()) : n;
     },
     reset: function () {
       if (!api) { try { window.localStorage.removeItem(KEY); } catch (e) {} }
@@ -57,7 +63,7 @@
       if (!api || finished) return;
       finished = true;
       var st = api.LMSGetValue("cmi.core.lesson_status");
-      api.LMSSetValue("cmi.core.exit", st === "completed" ? "" : "suspend");
+      api.LMSSetValue("cmi.core.exit", (st === "completed" || st === "passed") ? "" : "suspend");
       api.LMSCommit("");
       api.LMSFinish("");
     }

@@ -3,24 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lesson 1 · FAO Science and Innovation Strategy (redesign concept)</title>
-<meta name="description" content="Redesign concept of Lesson 1 of the FAO e-learning course on the FAO Science and Innovation Strategy. Not an official FAO product.">
+<title>The FAO Science and Innovation Strategy and your work (course redesign concept)</title>
+<meta name="description" content="Redesign concept of the FAO e-learning course on the FAO Science and Innovation Strategy: three lessons, practice tasks and a final check. Not an official FAO product.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Ccircle cx=%2716%27 cy=%2716%27 r=%2716%27 fill=%27%230b3d66%27/%3E%3Ccircle cx=%2722%27 cy=%2711%27 r=%275%27 fill=%27%23e8920c%27/%3E%3Cpath d=%27M3 24 Q14 15 29 22 V27 H3Z%27 fill=%27%233e9b5f%27/%3E%3C/svg%3E">
 <link rel="stylesheet" href="assets/course.css">
 <script src="assets/scorm.js"></script>
-<script src="assets/course.js"></script>
+<script src="assets/engine.js"></script>
+<script src="assets/lesson1.js"></script>
+<script src="assets/lesson2.js"></script>
+<script src="assets/lesson3.js"></script>
+<script src="assets/final.js"></script>
 </head>
 <body>
 <div class="player">
-  <div class="topbar"><span class="crumb" id="crumb"></span><span class="pill" id="pill" hidden></span></div>
+  <header class="topbar" id="header">
+    <button class="iconbtn" id="homeBtn" aria-label="Course home" title="Course home">&#8962;</button>
+    <span class="crumb" id="crumb"></span>
+    <span class="pill" id="pill" hidden></span>
+    <button class="iconbtn" id="menuBtn" aria-label="Course menu" aria-expanded="false" aria-controls="menu" title="Course menu">&#9776; <span class="lbl">Menu</span></button>
+  </header>
   <div class="progress" aria-hidden="true"><span id="bar"></span></div>
-  <main class="stage" id="stage" aria-live="off"></main>
+  <main class="stage" id="stage"></main>
   <nav class="navbar" aria-label="Course navigation">
-    <button class="btn" id="back">‹ Back</button>
-    <button class="btn" id="menu">Menu</button>
+    <button class="btn" id="back">&#8249; Back</button>
     <span class="spacer"></span>
-    <button class="btn primary" id="next">Next ›</button>
+    <button class="btn primary" id="next">Next &#8250;</button>
   </nav>
 </div>
+<div class="scrim" id="scrim"></div>
+<aside class="menu" id="menu" aria-label="Course menu"></aside>
 <noscript><p style="padding:20px">This course needs JavaScript. Please enable it in your browser.</p></noscript>
 </body>
 </html>

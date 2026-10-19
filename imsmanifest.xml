@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<manifest identifier="fao-si-redesign-lesson1" version="1.0"
+<manifest identifier="fao-si-redesign-course" version="1.0"
   xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
   xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -10,9 +10,9 @@
   </metadata>
   <organizations default="org1">
     <organization identifier="org1">
-      <title>FAO Science and Innovation Strategy - Lesson 1 (redesign concept)</title>
+      <title>The FAO Science and Innovation Strategy and your work (redesign concept)</title>
       <item identifier="item1" identifierref="res1">
-        <title>Lesson 1. The FAO Science and Innovation Strategy and your work</title>
+        <title>The FAO Science and Innovation Strategy and your work</title>
       </item>
     </organization>
   </organizations>
@@ -20,8 +20,12 @@
     <resource identifier="res1" type="webcontent" adlcp:scormtype="sco" href="index.html">
       <file href="index.html"/>
       <file href="assets/course.css"/>
-      <file href="assets/course.js"/>
       <file href="assets/scorm.js"/>
+      <file href="assets/engine.js"/>
+      <file href="assets/lesson1.js"/>
+      <file href="assets/lesson2.js"/>
+      <file href="assets/lesson3.js"/>
+      <file href="assets/final.js"/>
     </resource>
   </resources>
 </manifest>
